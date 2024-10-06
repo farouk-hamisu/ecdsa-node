@@ -43,7 +43,11 @@ Make sure you have the following installed on your machine:
 3. Start the server:
     ```bash
     npm start
+4. Start the client:
+    ```bash
+    npm run dev 
     ```
+    
 
 ### Usage
 
