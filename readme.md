@@ -1,31 +1,71 @@
-## ECDSA Node
+# Simple Crypto Transfer Platform
 
-This project is an example of using a client and server to facilitate transfers between different addresses. Since there is just a single server on the back-end handling transfers, this is clearly very centralized. We won't worry about distributed consensus for this project.
+This is a simple fullstack project for transferring cryptocurrency between wallets. The platform uses cryptographic signatures and public key recovery to authorize and verify transactions. **Please note** that the project uses mock data and is intended for learning purposes only.
 
-However, something that we would like to incoporate is Public Key Cryptography. By using Elliptic Curve Digital Signatures we can make it so the server only allows transfers that have been signed for by the person who owns the associated address.
+## Features
 
-### Video instructions
-For an overview of this project as well as getting started instructions, check out the following video:
+- Generate a new wallet (private and public keys).
+- Sign messages using private keys.
+- Recover public keys from signed transactions.
+- Transfer cryptocurrency between wallets.
 
-https://www.loom.com/share/0d3c74890b8e44a5918c4cacb3f646c4
- 
-### Client
+## How It Works
 
-The client folder contains a [react app](https://reactjs.org/) using [vite](https://vitejs.dev/). To get started, follow these steps:
+1. **Generate Wallet**: The application generates a private and public key pair which is used for signing and verifying transactions.
+2. **Signing Transactions**: When transferring funds, a transaction is signed with the sender's private key to ensure authenticity.
+3. **Public Key Recovery**: The recipient can recover the sender’s public key from the transaction to verify the sender's identity.
+4. **Transfer Funds**: Users can transfer cryptocurrency from one wallet to another.
 
-1. Open up a terminal in the `/client` folder
-2. Run `npm install` to install all the depedencies
-3. Run `npm run dev` to start the application 
-4. Now you should be able to visit the app at http://127.0.0.1:5173/
+## Getting Started
 
-### Server
+To get the project up and running on your local machine, follow these steps.
 
-The server folder contains a node.js server using [express](https://expressjs.com/). To run the server, follow these steps:
+### Prerequisites
 
-1. Open a terminal within the `/server` folder 
-2. Run `npm install` to install all the depedencies 
-3. Run `node index` to start the server 
+Make sure you have the following installed on your machine:
 
-The application should connect to the default server port (3042) automatically! 
+- Node.js (v14 or above)
+- npm (Node package manager)
 
-_Hint_ - Use [nodemon](https://www.npmjs.com/package/nodemon) instead of `node` to automatically restart the server on any changes.
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/simple-crypto-transfer.git
+    cd simple-crypto-transfer
+    ```
+
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the server:
+    ```bash
+    npm start
+    ```
+
+### Usage
+
+1. Start the application on your local machine by running the server.
+2. The `wallet.txt` file contains a pre-generated private and public key. You can use this wallet to try out transferring money between wallets.
+3. Once the server is running, you can make POST requests to the `/send` endpoint to transfer cryptocurrency between wallets. An example transaction looks like this:
+
+    ```json
+    {
+        "sender": "PUBLIC_KEY_OF_SENDER",
+        "recipient": "PUBLIC_KEY_OF_RECIPIENT",
+        "amount": 100,
+        "signature": "SIGNATURE_OF_THE_TRANSACTION"
+    }
+    ```
+
+### Try it Out!
+
+To try out the project, open the `wallet.txt` file. It contains a pre-generated private and public key you can use for signing and verifying transactions. Use the provided private key to sign your transaction and transfer money between wallets.
+
+Additionally, you can generate new private and public key pairs by running the `generate.js` file located in the `server` folder:
+
+```bash
+node server/generate.js
+
