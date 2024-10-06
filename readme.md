@@ -31,8 +31,8 @@ Make sure you have the following installed on your machine:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/simple-crypto-transfer.git
-    cd simple-crypto-transfer
+    git clone https://github.com/farouk-hamisu/ecdsa-node.git
+    cd ecdsa-node.git
     ```
 
 2. Install the dependencies:
